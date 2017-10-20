@@ -17,7 +17,13 @@
 
 	$(function() {
 		app.initialize();
-		var onInApp = cordova.InAppBrowser.open('http://cms.gslssd.com/mobilebankcn/', '_blank', 'location=no,hidden=yes,closebuttoncaption=Done,toolbar=no');
 	});
+
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+	    window.open = cordova.InAppBrowser.open;
+		//var onInApp = cordova.InAppBrowser.open('http://cms.gslssd.com/mobilebankcn/', '_blank', 'location=no,hidden=yes,closebuttoncaption=Done,toolbar=no');
+		var onInApp = window.open('http://cms.gslssd.com/mobilebankcn/', '_blank', 'location=no,hidden=yes,closebuttoncaption=Done,toolbar=no');
+	}
 </script>
 
